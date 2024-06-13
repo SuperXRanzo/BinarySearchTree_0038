@@ -36,4 +36,6 @@ public:
 		search(element, parent, currentNode);
 
 		if (parent == nullptr) {
-			ROOT = newNode; 
+			ROOT = newNode;
+			return;
+		}
