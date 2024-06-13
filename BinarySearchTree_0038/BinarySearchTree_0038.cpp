@@ -2,7 +2,8 @@
 #include <string>
 using namespace std;
 
-class Node {
+class Node 
+{
 public:
 	string info;
 	Node* leftchild;
@@ -16,11 +17,13 @@ public:
 	}
 };
 
-class BinaryTree {
+class BinaryTree 
+{
 public:
 	Node* ROOT;
 
-	BinaryTree() {
+	BinaryTree() 
+	{
 		ROOT = nullptr; 
 	}
 
@@ -35,7 +38,30 @@ public:
 		Node* currentNode = nullptr;
 		search(element, parent, currentNode);
 
-		if (parent == nullptr) {
+		if (parent == nullptr) 
+		{
 			ROOT = newNode;
 			return;
 		}
+
+		if (element < parent->info) 
+		{
+			parent->leftchild = newNode;
+		}
+		else if (element > parent->info) 
+		{
+			parent->rightchild = newNode;
+		}
+	}
+	
+	void search(string element, Node*& parent, Node*& currentNode) {
+		currentNode = ROOT;
+		parent = nullptr;
+		while ((currentNode != nullptr) && (currentNode->info != element)) {
+			parent = currentNode;
+			if (element < currentNode->info)
+				currentNode = currentNode->leftchild;
+			else
+				currentNode = currentNode->rightchild;
+		}
+	}
