@@ -152,7 +152,7 @@ int main() {
 			return 0;
 		default:
 		{
-			cout << "Wrong Number nigga!" << endl;
+			cout << "Wrong Number Bro!" << endl;
 			break;
 		}
 		}
